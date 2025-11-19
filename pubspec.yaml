@@ -1,0 +1,63 @@
+name: face_lie_detector
+description: "A new Flutter project."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  
+  # Gerekli Paketler
+  camera: ^0.10.5+9
+  google_mlkit_face_detection: ^0.11.0
+  permission_handler: ^11.0.1
+  audioplayers: ^6.5.1
+  
+  # Ses Kaydı (Versiyonu 5.2.0 yaparak Linux hatasını çözüyoruz)
+  record: ^5.2.0
+  
+  sensors_plus: ^5.0.1
+  shared_preferences: ^2.2.2
+  screenshot: ^3.0.0
+  share_plus: ^10.0.0
+  path_provider: ^2.1.2
+  change_app_package_name: ^1.5.0
+
+# Çakışma Engelleyici (Önceki Sorunumuzun Çözümü)
+dependency_overrides:
+  record_android: ^1.3.0
+  record_linux: ^1.1.0
+  record_platform_interface: ^1.4.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/sounds/
+    - assets/icon_fg.png # SADECE YENİ ÖN PLAN DOSYASINI LİSTELE
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  flutter_launcher_icons: ^0.13.1
+
+flutter_icons: # ADAPTİF İKON YAPILANDIRMASI
+  android: true
+  ios: true
+  
+  # Fallback ve iOS için ana dosya yolu
+  image_path: "assets/icon_fg.png" 
+
+  # --- ADAPTİF ANDROID İKON AYARLARI ---
+  # Dış katman arka planı (Katı Siyah)
+  adaptive_icon_background: "#000000" 
+  
+  # İç katman (Ana Logo - Transparan PNG)
+  adaptive_icon_foreground: "assets/icon_fg.png" 
+  
+  remove_alpha_ios: true 
+  min_sdk_android: 21
